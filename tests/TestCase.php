@@ -2,9 +2,9 @@
 
 namespace Allenjd3\Scopify\Tests;
 
+use Allenjd3\Scopify\ScopifyServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Allenjd3\Scopify\ScopifyServiceProvider;
 
 class TestCase extends Orchestra
 {

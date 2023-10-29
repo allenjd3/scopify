@@ -2,9 +2,9 @@
 
 namespace Allenjd3\Scopify;
 
+use Allenjd3\Scopify\Commands\ScopifyCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Allenjd3\Scopify\Commands\ScopifyCommand;
 
 class ScopifyServiceProvider extends PackageServiceProvider
 {
