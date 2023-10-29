@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Allenjd3\Scopify\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ScopifyCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'scopify';
 
     public $description = 'My command';
 
