@@ -2,12 +2,14 @@
 
 namespace Allenjd3\Scopify\Traits;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Pipeline;
 
 trait Filterable
 {
-    protected abstract function scopifyFilters(): array;
+    protected function scopifyFilters()
+    {
+        return [];
+    }
 
     public function hasNamedScope($scope)
     {

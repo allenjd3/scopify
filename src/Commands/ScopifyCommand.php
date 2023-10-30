@@ -48,7 +48,7 @@ class ScopifyCommand extends Command implements PromptsForMissingInput
     protected function generateFilterName(): string
     {
         return str($this->argument('name'))->endsWith('Filter')
-            ? str($this->argument('name'))->title()
-            : str($this->argument('name'))->title().'Filter';
+            ? str($this->argument('name'))->ucfirst()
+            : str($this->argument('name'))->ucfirst().'Filter';
     }
 }

@@ -17,13 +17,6 @@ You can install the package via composer:
 composer require allenjd3/scopify
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="scopify-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -34,6 +27,7 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'default-namespace' => 'App\\Filters',
 ];
 ```
 
@@ -45,9 +39,53 @@ php artisan vendor:publish --tag="scopify-views"
 
 ## Usage
 
+Create a new filter with
+
+```bash
+php artisan make:scopify YourFilterName
+```
+
+Then in your model, add the Filterable trait
+
 ```php
-$scopify = new Allenjd3\Scopify();
-echo $scopify->echoPhrase('Hello, Allenjd3!');
+class User extends Authenticatable
+{
+    use Filterable;
+}
+```
+
+Then you can use your filters like this-
+
+```php
+...
+public function scopeMyScope($query)
+{
+    return (new App\Filters\MyFilterName)->call($query)
+}
+```
+
+Optionally you can also override the scopifyFilters method to add scopes
+
+```php
+protected function scopifyFilters()
+{
+    return [
+        'myScope' => MyFilterName::class,
+    ];
+}
+```
+
+You can now use your scope like you normally would- `User::myScope()->get()`
+
+## Applying Multiple Filters
+
+You can apply multiple filters like this-
+
+```php
+User::filters([
+    MyFilterName::class,
+    MyOtherFilterName::class,
+])->get();
 ```
 
 ## Testing
