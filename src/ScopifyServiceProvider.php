@@ -18,8 +18,6 @@ class ScopifyServiceProvider extends PackageServiceProvider
         $package
             ->name('scopify')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_scopify_table')
             ->hasCommand(ScopifyCommand::class);
     }
 }

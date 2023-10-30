@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Builder;
+
+class {{ name }}
+{
+    public function call(): Builder
+    {
+        //
+    }
+}

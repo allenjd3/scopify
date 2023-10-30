@@ -7,6 +7,8 @@
 
 This package allows you to quickly create filters and query objects and use them in your laravel scopes.
 
+# FYI- the following is placeholder! This package is not ready to be installed.
+
 ## Installation
 
 You can install the package via composer:
