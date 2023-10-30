@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 trait Filterable
 {
-    protected abstract function scopifyFilters(): Collection;
+    abstract protected function scopifyFilters(): Collection;
 
     public function hasNamedScope($scope)
     {
