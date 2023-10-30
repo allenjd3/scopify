@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class {{ name }}
 {
-    public function call(): Builder
+    public function call(Builder $query)
     {
         //
     }
