@@ -16,7 +16,8 @@ it('checks if scope function exists using scopifyFilters', function () {
 
 function getModelExample()
 {
-    return new class {
+    return new class
+    {
         use \Allenjd3\Scopify\Traits\Filterable;
 
         public function scopeTest($query)
