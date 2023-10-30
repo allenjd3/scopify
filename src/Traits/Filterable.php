@@ -3,6 +3,7 @@
 namespace Allenjd3\Scopify\Traits;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Pipeline;
 
 trait Filterable
 {
@@ -31,5 +32,12 @@ trait Filterable
     private function getScopifyFilter($scope)
     {
         return new (data_get($this->scopifyFilters(), $scope));
+    }
+
+    protected function filters(array $filters)
+    {
+        return Pipeline::send($this->query())
+            ->through(...$filters)
+            ->thenReturn();
     }
 }
