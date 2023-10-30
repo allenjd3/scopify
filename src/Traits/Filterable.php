@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 trait Filterable
 {
-    protected abstract function scopifyFilters(): Collection;
+    protected abstract function scopifyFilters(): array;
 
     public function hasNamedScope($scope)
     {
@@ -25,11 +25,11 @@ trait Filterable
 
     private function hasScopifyFilter($scope)
     {
-        return $this->scopifyFilters()->has($scope);
+        return collect($this->scopifyFilters())->has($scope);
     }
 
     private function getScopifyFilter($scope)
     {
-        return new ($this->scopifyFilters()->get($scope));
+        return new (data_get($this->scopifyFilters(), $scope));
     }
 }
