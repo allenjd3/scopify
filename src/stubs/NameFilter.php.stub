@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class {{ name }} extends Scopify
 {
-    public function call(Builder $query)
+    public function call(Builder $query, ...$args)
     {
         //
     }
