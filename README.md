@@ -7,8 +7,6 @@
 
 This package allows you to quickly create filters and query objects and use them in your laravel scopes.
 
-# FYI- the following is placeholder! This package is not ready to be installed.
-
 ## Installation
 
 You can install the package via composer:
@@ -31,18 +29,12 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="scopify-views"
-```
-
 ## Usage
 
 Create a new filter with
 
 ```bash
-php artisan make:scopify YourFilterName
+php artisan make:scopify YourFilter
 ```
 
 Then in your model, add the Filterable trait
@@ -60,7 +52,7 @@ Then you can use your filters like this-
 ...
 public function scopeMyScope($query)
 {
-    return (new App\Filters\MyFilterName)->call($query)
+    return (new App\Filters\MyFilter)->call($query)
 }
 ```
 
@@ -70,7 +62,7 @@ Optionally you can also override the scopifyFilters method to add scopes
 protected function scopifyFilters()
 {
     return [
-        'myScope' => MyFilterName::class,
+        'myScope' => MyFilter::class,
     ];
 }
 ```
@@ -83,8 +75,8 @@ You can apply multiple filters like this-
 
 ```php
 User::filters([
-    MyFilterName::class,
-    MyOtherFilterName::class,
+    MyFilter::class,
+    MyOtherFilter::class,
 ])->get();
 ```
 
