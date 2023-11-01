@@ -19,31 +19,31 @@ it('checks if scope function exists using scopifyFilters', function () {
 it('uses standard scopes', function () {
     $query = Post::query();
     $this->assertEquals(
-        'select * from "posts" where "name" = \'test-standard\'',
-        $query->testStandard()->toRawSql(),
+        'select * from "posts" where "name" = ?',
+        $query->testStandard()->toSql(),
     );
 });
 
 it('uses scopifyFilters', function () {
     $query = Post::query();
     $this->assertEquals(
-        'select * from "posts" where "name" = \'scooby\'',
-        $query->scooby()->toRawSql(),
+        'select * from "posts" where "name" = ?',
+        $query->scooby()->toSql(),
     );
 });
 
 it('uses scopifyFilters with parameters', function () {
     $query = Post::query();
     $this->assertEquals(
-        'select * from "posts" where "id" = 2',
-        $query->scopifyWithParams(id: 2)->toRawSql(),
+        'select * from "posts" where "id" = ?',
+        $query->scopifyWithParams(id: 2)->toSql(),
     );
 });
 
 it('allows you to chain scopifyFilters', function () {
     $query = Post::query();
     $this->assertEquals(
-        'select * from "posts" where "name" = \'scooby\' and "id" = 2',
-        $query->scooby()->scopifyWithParams(id: 2)->toRawSql(),
+        'select * from "posts" where "name" = ? and "id" = ?',
+        $query->scooby()->scopifyWithParams(id: 2)->toSql(),
     );
 });
